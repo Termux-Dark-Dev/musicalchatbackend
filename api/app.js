@@ -20,6 +20,12 @@ app.get("/uploads/profile_pic/:filename", function (req, res) {
 
 app.use("/user", userRoutes);
 
+app.get("/serverstatus",(req,res,next)=>{
+  res.status(200).json({
+    status:"OK"
+  })
+})
+
 app.use("*", (req, res, next) => {
   res.status(404).json({
     message: "Resource not found",
